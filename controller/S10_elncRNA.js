@@ -19,15 +19,15 @@ module.exports.elncRNAEnhancer = catchAsync(async function (req, res) {
 
 // S10_TargetsOf_eIncRNAs
 module.exports.elncRNATarget = catchAsync(async function (req, res) {
-  const elncRNATarget_sql = "select * from S10_TargetsOf_elncRNAs";
-  const elncRNAList_sql = "SELECT DISTINCT elncRNA FROM S10_TargetsOf_elncRNAs";
+  const elncRNATarget_sql = "SELECT DISTINCT elncRNA, Target_GeneName FROM S10_TargetsOf_elncRNAs;";
+  const elncRNAList_sql = "SELECT DISTINCT elncRNA FROM S10_TargetsOf_elncRNAs;";
 
   const elncRNATarget_data = await db_all(elncRNATarget_sql);
   const elncRNAList_data = await db_target_list(elncRNAList_sql);
 
   return res.status(200).json({
     status: "ok",
-    targetList: elncRNAList_data,
+    // targetList: elncRNAList_data,
     data: elncRNATarget_data,
   });
 });
