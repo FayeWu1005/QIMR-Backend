@@ -19,11 +19,11 @@ const S10_TALR = require("./routes/S10_TALR");
 const AppError = require("./utils/apperror");
 const GlobalError = require("./controller/globalError");
 
-// cors package will solve browser cross origin policy proble
+// cors package will solve the browser cross origin policy proble
 const cors = require("cors");
 
 const app = express();
-// cors function will be solve cross origin policy proble
+// cors function will be solve the cross origin policy problem
 app.use(cors());
 // parse static files
 app.use(express.static(path.join(__dirname, "public")));
@@ -53,9 +53,4 @@ app.all("*", function (req, res, next) {
 
 app.use(GlobalError);
 
-// S9_GencodeAnnotated
-
 module.exports = app;
-
-//
-//S11_ConsistentlyExpressed_in_C124
